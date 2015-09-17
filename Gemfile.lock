@@ -43,9 +43,12 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-navbar (2.2.4)
+      gem_config (~> 0.3)
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     byebug (6.0.2)
     capybara (2.5.0)
@@ -54,6 +57,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.7)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -61,7 +68,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    database_cleaner (1.5.0)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -79,8 +85,11 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    gem_config (0.3.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -95,12 +104,20 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.6.2)
+    mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.8.0)
     multi_json (1.11.2)
+    nested_form (0.3.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    paperclip (4.3.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -123,6 +140,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_bootstrap_navbar (2.0.1)
+      bootstrap-navbar (~> 2.0)
+      rails (>= 3.0.0)
     railties (4.2.4)
       actionpack (= 4.2.4)
       activesupport (= 4.2.4)
@@ -192,16 +212,20 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.5)
+  bootstrap_form
   byebug
   capybara
   coffee-rails (~> 4.1.0)
-  database_cleaner
   devise
   devise-bootstrap-views
   factory_girl_rails
+  haml
   jbuilder (~> 2.0)
   jquery-rails
+  nested_form
+  paperclip (~> 4.3)
   rails (= 4.2.4)
+  rails_bootstrap_navbar
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

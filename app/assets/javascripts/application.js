@@ -17,3 +17,4 @@
 
 // Load all Bootstrap JavaScript
 //= require bootstrap-sprockets
+//= require jquery_nested_form

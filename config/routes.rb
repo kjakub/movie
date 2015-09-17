@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
+  resources :films
+
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
 
   # The priority is based upon order of creation: first created -> highest priority.

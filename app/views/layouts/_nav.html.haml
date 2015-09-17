@@ -1,0 +1,24 @@
+= navbar static: :top do
+  = navbar_header brand: 'Movie theatre', brand_link: root_path
+  - if current_user
+    = navbar_collapse do
+      = navbar_group class: 'foo', id: 'menu' do
+        / = navbar_text 'Pick an option:'
+        = navbar_item "Add new film", new_film_path
+      /   = navbar_item "About Us", '/about-us'
+      /   = navbar_item '/contact' do
+      /     %span.glyphicon.glyphicon-hand-right
+      /     Contact Us!
+      /   = navbar_dropdown "Stuff" do
+      /     = navbar_dropdown_header 'Great stuff!'
+      /     = navbar_item "One", '/one'
+      /     = navbar_item "Two", '/two'
+      /     = navbar_item "Three", '/three'
+      /     - if true # check if user is admin, maybe like "if current_user.try(:admin?)"
+      /       = navbar_dropdown_divider
+      /       = navbar_item "Admin Dashboard", '/admin'
+      /       = navbar_item "Users", '/admin/users'
+      = navbar_group align: 'right' do
+        = navbar_item "Log Out", destroy_user_session_path
+        / - else
+        /   = navbar_item "Log In", '/login'

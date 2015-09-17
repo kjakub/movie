@@ -34,8 +34,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'rails_bootstrap_navbar'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap_form'
 gem 'sprockets-rails'
+gem 'haml'
+gem 'nested_form'
+
+gem "paperclip", "~> 4.3"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,7 +49,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'database_cleaner'
 end
 
 group :development do
