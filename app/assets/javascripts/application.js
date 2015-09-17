@@ -18,3 +18,11 @@
 // Load all Bootstrap JavaScript
 //= require bootstrap-sprockets
 //= require jquery_nested_form
+
+$(document).on('nested:fieldAdded', function(event){
+  // this field was just inserted into your form
+  var field = event.field; 
+  var fileField = field.find('input[type=file]');
+  fileField.click();
+  console.log(fileField)
+})

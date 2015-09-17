@@ -7,7 +7,7 @@ RSpec.describe Gallery, type: :model do
   end
 
   it 'is invalid without an snapshot' do
-    expect(build(:gallery, film: nil)).to_not be_valid
+    expect(build(:gallery, snapshot: nil)).to_not be_valid
   end
 
 end

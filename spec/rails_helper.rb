@@ -57,4 +57,14 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  # clean up paperclip temporary files for test
+  config.after(:all) do
+    if Rails.env.test?
+      test_uploads = Dir["#{Rails.root}/test_uploads"]
+      FileUtils.rm_rf(test_uploads)
+    end
+  end
+
+
 end

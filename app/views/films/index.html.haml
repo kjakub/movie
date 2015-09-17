@@ -1,2 +1,17 @@
-YO
-=link_to "Logout", destroy_user_session_path, method: :delete
+- if @films.empty?
+  .jumbotron
+    %h1 Welcome to your movie theater
+    %p
+      You don't have anything created
+    %p
+      %a.btn.btn-success.btn-lg{:href => new_film_path} Get started now
+-else
+  .row
+    -@films.each do |film|
+      .col-lg-3.col-md-4.col-xs-6.thumb
+        .thumbnail
+          = image_tag film.galleries.first.snapshot.url(:thumb) if film.galleries.first
+          .caption
+            %h3= film.title
+            %p
+              %a.btn.btn-primary{:href =>  film_path(film), :role => "button"} Show More

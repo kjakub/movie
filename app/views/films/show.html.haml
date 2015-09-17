@@ -1,0 +1,11 @@
+.jumbotron
+  %h1= @film.title
+  %p
+    %a.btn.btn-success.btn-lg{:href => edit_film_path(@film)} Update
+    = link_to "Delete", film_path(@film), method: :delete, class: "btn btn-danger btn-lg"
+.row
+
+- @film.galleries.each do |gallery|  
+  .col-lg-3.col-md-4.col-xs-6.thumb
+    .thumbnail
+      = image_tag gallery.snapshot.url(:thumb)
