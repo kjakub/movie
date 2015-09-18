@@ -1,11 +1,59 @@
 <h1>New Film</h1>
 
+
 = bootstrap_nested_form_for(@film) do |f|
-  = f.text_field :title
-  = f.fields_for :galleries do |gallery_form|
-    = gallery_form.file_field :snapshot
-    = gallery_form.link_to_remove "Remove this picture"
-  %p= f.link_to_add "Add a Picture", :galleries
+  = f.text_field :title, :data => { "validation" => "required", "validation-error-msg" => "This field is required" }
+  .row.for_nested
+    = f.fields_for :galleries do |gallery_form|
+      .col-lg-3.col-md-4.col-xs-6.thumb
+        .thumbnail
+          %img{:height => "300", :width => "300", :class => 'preview', :src => "http://placehold.it/300x300"}/
+          .caption
+            %p
+              = gallery_form.file_field :snapshot, :data => { "validation" => "required", "validation-error-msg" => "Picture is required" }
+              = gallery_form.link_to_remove "Remove", class: "btn btn-danger remove_button", role: "button"
+    %p
+      = f.link_to_add :galleries, class: "add_button" do
+        = "Add"
+        %i.glyphicon.glyphicon-plus-sign
 
+  %hr
+  = f.submit "Create", :class => "btn btn-primary"
 
-  = f.submit "Create"
+:javascript
+
+  var total_fields = 0;
+
+  $(document).on('nested:fieldAdded', function(event){
+    // this field was just inserted into your form
+    if(total_fields === 0){
+      // remove the first remove button for snapshot
+      $(".row.for_nested").find(".remove_button:first").remove();
+    }
+
+    total_fields++;
+
+    var field = event.field; 
+    var fileField = field.find('input[type=file]');
+    var preview = field.find('.preview')
+
+    fileField.on('change', function(e) {
+      var file = fileField[0].files[0];
+      var reader = new FileReader();
+      reader.onload = function(e){
+        image_base64 = e.target.result;
+        preview.attr("src", image_base64);
+      };
+      reader.readAsDataURL(file);
+    });
+
+    fileField.click();
+    console.log(fileField)
+  })
+
+  $(document).ready( function() {
+    // use jquery validation too to prevent loosing on-fly thumbnails when submitting invalid film
+    $.validate();
+    //first thumbnail visible
+    $(".row").find(".add_button:first").click();
+  });

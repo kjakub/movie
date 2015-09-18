@@ -8,7 +8,6 @@ class FilmsController < ApplicationController
 
   def new
     @film = Film.new
-    @film.galleries.build
   end  
 
   def create

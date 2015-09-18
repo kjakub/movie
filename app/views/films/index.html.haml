@@ -14,4 +14,5 @@
           .caption
             %h3= film.title
             %p
-              %a.btn.btn-primary{:href =>  film_path(film), :role => "button"} Show More
+              %a.btn.btn-primary{:href =>  edit_film_path(film), :role => "button"} Udpate
+              = link_to "Delete", film_path(film), method: :delete, class: "btn btn-danger"

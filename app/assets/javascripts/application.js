@@ -18,11 +18,20 @@
 // Load all Bootstrap JavaScript
 //= require bootstrap-sprockets
 //= require jquery_nested_form
+//= require jquery.form-validator
 
-$(document).on('nested:fieldAdded', function(event){
-  // this field was just inserted into your form
-  var field = event.field; 
-  var fileField = field.find('input[type=file]');
-  fileField.click();
-  console.log(fileField)
-})
+
+// $(document).ready(function(){
+//     var preview = $(".upload-preview img");
+
+//     $(".file").change(function(event){
+//        var input = $(event.currentTarget);
+//        var file = input[0].files[0];
+//        var reader = new FileReader();
+//        reader.onload = function(e){
+//            image_base64 = e.target.result;
+//            preview.attr("src", image_base64);
+//        };
+//        reader.readAsDataURL(file);
+//     });
+// });

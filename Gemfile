@@ -40,7 +40,7 @@ gem 'bootstrap_form'
 gem 'sprockets-rails'
 gem 'haml'
 gem 'nested_form'
-
+gem 'jquery-form-validator-rails'
 gem "paperclip", "~> 4.3"
 
 group :development, :test do
