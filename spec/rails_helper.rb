@@ -78,12 +78,12 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   # clean up paperclip temporary files for test
-  # config.after(:all) do
-  #   if Rails.env.test?
-  #     test_uploads = Dir["#{Rails.root}/public/test"]
-  #     FileUtils.rm_rf(test_uploads)
-  #   end
-  # end
+  config.after(:all) do
+    if Rails.env.test?
+      test_uploads = Dir["#{Rails.root}/public/system/test"]
+      FileUtils.rm_rf(test_uploads)
+    end
+  end
 
 
 end
