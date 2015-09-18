@@ -37,11 +37,11 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  config.paperclip_defaults = {
-    path: ':rails_root/test_uploads/:class/:id/:attachment/:filename.:extension',
-    url: ':rails_root/test_uploads/:class/:id/:attachment/:filename.:extension'
-  }  
-
+  # config.paperclip_defaults = {
+  #   path: ':rails_root/public/system/test/:class/:id/:attachment/:filename',
+  #   url: '/system/test/:attachment/:id/:style/:filename"'
+  # }  
+  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

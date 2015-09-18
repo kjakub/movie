@@ -10,7 +10,7 @@
           %img{:height => "300", :width => "300", :class => 'preview', :src => "http://placehold.it/300x300"}/
           .caption
             %p
-              = gallery_form.file_field :snapshot, :data => { "validation" => "required", "validation-error-msg" => "Picture is required" }
+              = gallery_form.file_field :snapshot, :data => { "validation" => "required", "validation-error-msg" => "Picture is required" }, :class => "file_upload"
               = gallery_form.link_to_remove "Remove", class: "btn btn-danger remove_button", role: "button"
     %p
       = f.link_to_add :galleries, class: "add_button" do
